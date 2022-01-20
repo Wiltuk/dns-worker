@@ -1,0 +1,8 @@
+name = "dns"
+type = "webpack"
+
+account_id = "a62a0ad79ca33309195e277ff4c84f1c"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-01-19"
