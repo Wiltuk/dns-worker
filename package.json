@@ -2,13 +2,13 @@
     "name": "dns",
     "private": true,
     "version": "1.0.0",
-    "description": "package for creating workers templates",
+    "description": "Returns DNS entries for a given domain",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write '**/*.{js,css,json,md}'"
     },
-    "author": "Adrian <adrian@hardy.dev>",
+    "author": "Adrian Hardy",
     "license": "ISC",
     "devDependencies": {
         "prettier": "^1.17.0"

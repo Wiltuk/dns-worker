@@ -56,20 +56,86 @@ router.get('/:text', async ({ params }) => {
 
         let aRes = JSON.stringify(dnsRes['A']['Answer'])
         let aaaaRes = JSON.stringify(dnsRes['AAAA']['Answer'])
+        let cnameRes = JSON.stringify(dnsRes['CNAME']['Answer'])
         let mxRes = JSON.stringify(dnsRes['MX']['Answer'])
         let txtRes = JSON.stringify(dnsRes['TXT']['Answer'])
         let nsRes = JSON.stringify(dnsRes['NS']['Answer'])
         let soaRes = JSON.stringify(dnsRes['SOA']['Answer'])
 
-        const htmlPage = `<!DOCTYPE html>
+        function aHtml() {
+            if (aRes != null && dnsRes['A']['Answer'][0]['type'] == 1) {
+                return `<tr><td>A</td><td>${aRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        function aaaaHtml() {
+            if (aaaaRes != null && dnsRes['AAAA']['Answer'][0]['type'] == 28) {
+                return `<tr><td>AAAA</td><td>${aaaaRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        function cnameHtml() {
+            if (cnameRes != null && dnsRes['CNAME']['Answer'][0]['type'] == 5) {
+                return `<tr><td>CNAME</td><td>${cnameRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        function mxHtml() {
+            if (mxRes != null && dnsRes['MX']['Answer'][0]['type'] == 15) {
+                return `<tr><td>MX</td><td>${mxRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        function txtHtml() {
+            if (txtRes != null && dnsRes['TXT']['Answer'][0]['type'] == 16) {
+                return `<tr><td>TXT</td><td>${txtRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        function nsHtml() {
+            if (nsRes != null && dnsRes['NS']['Answer'][0]['type'] == 2) {
+                return `<tr><td>NS</td><td>${nsRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        function soaHtml() {
+            if (soaRes != null && dnsRes['SOA']['Answer'][0]['type'] == 6) {
+                return `<tr><td>SOA</td><td>${soaRes}</td></tr>`
+            } else {
+                return ` `
+            }
+        }
+
+        const htmlPage =
+            `<!DOCTYPE html>
 <body>
+
   <h1>DNS Records for ${decodeURIComponent(params.text)}</h1>
-  <p>A Records: ${aRes}</p>
-  <p>AAAA Records: ${aaaaRes}</p>
-  <p>MX Records: ${mxRes}</p>
-  <p>TXT Records: ${txtRes}</p>
-  <p>NS Records: ${nsRes}</p>
-  <p>SOA Records: ${soaRes}</p>
+
+<table>
+<thead><tr><th>Record Type</th><th>Record Value</th></tr></thead>
+<tbody>` +
+            aHtml() +
+            aaaaHtml() +
+            cnameHtml() +
+            mxHtml() +
+            txtHtml() +
+            nsHtml() +
+            soaHtml() +
+            `</tbody>
+  </table>
 </body>`
 
         return new Response(htmlPage, {
