@@ -1,4 +1,5 @@
 import { Router } from 'itty-router'
+import xss from 'xss'
 /**
  * Example someHost is set up to take in a JSON request
  * Replace url with the host you wish to send requests to
@@ -33,6 +34,12 @@ router.get('/:text', async ({ params }) => {
         }
     }
 
+    let cleanParam = xss(decodeURIComponent(params.text), {
+        whiteList: {},
+        stripIgnoreTag: true,
+        stripIgnoreTagBody: ['script'],
+    })
+
     async function dnsReqs() {
         const init = {
             headers: {
@@ -43,8 +50,7 @@ router.get('/:text', async ({ params }) => {
         let dnsResults = {}
 
         for (let i = 0; i < dnsTypes.length; i++) {
-            let url =
-                cfDns + decodeURIComponent(params.text) + '&type=' + dnsTypes[i]
+            let url = cfDns + cleanParam + '&type=' + dnsTypes[i]
             const response = await fetch(url, init)
             dnsResults[dnsTypes[i]] = await gatherResponse(response)
         }
@@ -122,7 +128,7 @@ router.get('/:text', async ({ params }) => {
             `<!DOCTYPE html>
 <body>
 
-  <h1>DNS Records for ${decodeURIComponent(params.text)}</h1>
+  <h1>DNS Records for ${cleanParam}</h1>
 
 <table>
 <thead><tr><th>Record Type</th><th>Record Value</th></tr></thead>
