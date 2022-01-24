@@ -60,65 +60,128 @@ router.get('/:text', async ({ params }) => {
     async function parseDnsResp() {
         let dnsRes = await dnsReqs()
 
-        let aRes = JSON.stringify(dnsRes['A']['Answer'])
-        let aaaaRes = JSON.stringify(dnsRes['AAAA']['Answer'])
-        let cnameRes = JSON.stringify(dnsRes['CNAME']['Answer'])
-        let mxRes = JSON.stringify(dnsRes['MX']['Answer'])
-        let txtRes = JSON.stringify(dnsRes['TXT']['Answer'])
-        let nsRes = JSON.stringify(dnsRes['NS']['Answer'])
-        let soaRes = JSON.stringify(dnsRes['SOA']['Answer'])
+        let aRes = dnsRes['A']['Answer']
+        let aaaaRes = dnsRes['AAAA']['Answer']
+        let cnameRes = dnsRes['CNAME']['Answer']
+        let mxRes = dnsRes['MX']['Answer']
+        let txtRes = dnsRes['TXT']['Answer']
+        let nsRes = dnsRes['NS']['Answer']
+        let soaRes = dnsRes['SOA']['Answer']
 
         function aHtml() {
-            if (aRes != null && dnsRes['A']['Answer'][0]['type'] == 1) {
-                return `<tr><td>A</td><td>${aRes}</td></tr>`
+            if (aRes != null && aRes[0]['type'] == 1) {
+                let aResHtml = `<tr><td>A</td>`
+
+                Object.entries(aRes).forEach(([key, value]) => {
+                    aResHtml =
+                        aResHtml +
+                        `<td>${JSON.stringify(aRes[key]['data'])}</td>`
+                })
+
+                aResHtml = aResHtml + `</tr>`
+                return aResHtml
             } else {
                 return ` `
             }
         }
 
         function aaaaHtml() {
-            if (aaaaRes != null && dnsRes['AAAA']['Answer'][0]['type'] == 28) {
-                return `<tr><td>AAAA</td><td>${aaaaRes}</td></tr>`
+            if (aaaaRes != null && aaaaRes[0]['type'] == 28) {
+                let aaaaResHtml = '<tr><td>AAAA</td>'
+
+                Object.entries(aRes).forEach(([key, value]) => {
+                    aaaaResHtml =
+                        aaaaResHtml +
+                        `<td>${JSON.stringify(aaaaRes[key]['data'])}</td>`
+                })
+
+                aaaaResHtml = aaaaResHtml + `</tr>`
+                return aaaaResHtml
             } else {
                 return ` `
             }
         }
 
         function cnameHtml() {
-            if (cnameRes != null && dnsRes['CNAME']['Answer'][0]['type'] == 5) {
-                return `<tr><td>CNAME</td><td>${cnameRes}</td></tr>`
+            if (cnameRes != null && cnameRes[0]['type'] == 5) {
+                let cnameResHtml = '<tr><td>CNAME</td>'
+
+                Object.entries(cnameRes).forEach(([key, value]) => {
+                    cnameResHtml =
+                        cnameResHtml +
+                        `<td>${JSON.stringify(cnameRes[key]['data'])}</td>`
+                })
+
+                cnameResHtml = cnameResHtml + `</tr>`
+                return cnameResHtml
             } else {
                 return ` `
             }
         }
 
         function mxHtml() {
-            if (mxRes != null && dnsRes['MX']['Answer'][0]['type'] == 15) {
-                return `<tr><td>MX</td><td>${mxRes}</td></tr>`
+            if (mxRes != null && mxRes[0]['type'] == 15) {
+                let mxResHtml = '<tr><td>MX</td>'
+
+                Object.entries(mxRes).forEach(([key, value]) => {
+                    mxResHtml =
+                        mxResHtml +
+                        `<td>${JSON.stringify(mxRes[key]['data'])}</td>`
+                })
+
+                mxResHtml = mxResHtml + `</tr>`
+                return mxResHtml
             } else {
                 return ` `
             }
         }
 
         function txtHtml() {
-            if (txtRes != null && dnsRes['TXT']['Answer'][0]['type'] == 16) {
-                return `<tr><td>TXT</td><td>${txtRes}</td></tr>`
+            if (txtRes != null && txtRes[0]['type'] == 16) {
+                let txtResHtml = '<tr><td>TXT</td>'
+
+                Object.entries(mxRes).forEach(([key, value]) => {
+                    txtResHtml =
+                        txtResHtml +
+                        `<td>${JSON.stringify(txtRes[key]['data'])}</td>`
+                })
+
+                txtResHtml = txtResHtml + `</tr>`
+                return txtResHtml
             } else {
                 return ` `
             }
         }
 
         function nsHtml() {
-            if (nsRes != null && dnsRes['NS']['Answer'][0]['type'] == 2) {
-                return `<tr><td>NS</td><td>${nsRes}</td></tr>`
+            if (nsRes != null && nsRes[0]['type'] == 2) {
+                let nsResHtml = '<tr><td>NS</td>'
+
+                Object.entries(nsRes).forEach(([key, value]) => {
+                    nsResHtml =
+                        nsResHtml +
+                        `<td>${JSON.stringify(nsRes[key]['data'])}</td>`
+                })
+
+                nsResHtml = nsResHtml + `</tr>`
+                return nsResHtml
             } else {
                 return ` `
             }
         }
 
         function soaHtml() {
-            if (soaRes != null && dnsRes['SOA']['Answer'][0]['type'] == 6) {
-                return `<tr><td>SOA</td><td>${soaRes}</td></tr>`
+            if (soaRes != null && soaRes[0]['type'] == 6) {
+                let soaResHtml = '<tr><td>SOA</td>'
+
+                Object.entries(soaRes).forEach(([key, value]) => {
+                    soaResHtml =
+                        soaResHtml +
+                        `<td>${JSON.stringify(soaRes[key]['data'])}</td>`
+                })
+
+                soaResHtml = soaResHtml + `</tr>`
+                return soaResHtml
             } else {
                 return ` `
             }
@@ -126,6 +189,7 @@ router.get('/:text', async ({ params }) => {
 
         const htmlPage =
             `<!DOCTYPE html>
+            <head><title>DNS Records for ${cleanParam}</title></head>
 <body>
 
   <h1>DNS Records for ${cleanParam}</h1>
