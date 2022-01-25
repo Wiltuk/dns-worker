@@ -89,7 +89,7 @@ router.get('/:text', async ({ params }) => {
             if (aaaaRes != null && aaaaRes[0]['type'] == 28) {
                 let aaaaResHtml = '<tr><td>AAAA</td>'
 
-                Object.entries(aRes).forEach(([key, value]) => {
+                Object.entries(aaaaRes).forEach(([key, value]) => {
                     aaaaResHtml =
                         aaaaResHtml +
                         `<td>${JSON.stringify(aaaaRes[key]['data'])}</td>`
@@ -140,7 +140,7 @@ router.get('/:text', async ({ params }) => {
             if (txtRes != null && txtRes[0]['type'] == 16) {
                 let txtResHtml = '<tr><td>TXT</td>'
 
-                Object.entries(mxRes).forEach(([key, value]) => {
+                Object.entries(txtRes).forEach(([key, value]) => {
                     txtResHtml =
                         txtResHtml +
                         `<td>${JSON.stringify(txtRes[key]['data'])}</td>`
