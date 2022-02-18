@@ -73,8 +73,7 @@ router.get('/:text', async ({ params }) => {
                 let aResHtml = `<tr><td>A</td><td>`
 
                 Object.entries(aRes).forEach(([key, value]) => {
-                    aResHtml =
-                        aResHtml + `<p>${JSON.stringify(aRes[key]['data'])}</p>`
+                    aResHtml = aResHtml + `<p>${aRes[key]['data']}</p>`
                 })
 
                 aResHtml = aResHtml + `</td></tr>`
@@ -89,9 +88,7 @@ router.get('/:text', async ({ params }) => {
                 let aaaaResHtml = '<tr><td>AAAA</td><td>'
 
                 Object.entries(aaaaRes).forEach(([key, value]) => {
-                    aaaaResHtml =
-                        aaaaResHtml +
-                        `<p>${JSON.stringify(aaaaRes[key]['data'])}</p>`
+                    aaaaResHtml = aaaaResHtml + `<p>${aaaaRes[key]['data']}</p>`
                 })
 
                 aaaaResHtml = aaaaResHtml + `</td></tr>`
@@ -107,8 +104,7 @@ router.get('/:text', async ({ params }) => {
 
                 Object.entries(cnameRes).forEach(([key, value]) => {
                     cnameResHtml =
-                        cnameResHtml +
-                        `<p>${JSON.stringify(cnameRes[key]['data'])}</p>`
+                        cnameResHtml + `<p>${cnameRes[key]['data']}</p>`
                 })
 
                 cnameResHtml = cnameResHtml + `</td></tr>`
@@ -123,9 +119,7 @@ router.get('/:text', async ({ params }) => {
                 let mxResHtml = '<tr><td>MX</td><td>'
 
                 Object.entries(mxRes).forEach(([key, value]) => {
-                    mxResHtml =
-                        mxResHtml +
-                        `<p>${JSON.stringify(mxRes[key]['data'])}</p>`
+                    mxResHtml = mxResHtml + `<p>${mxRes[key]['data']}</p>`
                 })
 
                 mxResHtml = mxResHtml + `</td></tr>`
@@ -140,9 +134,7 @@ router.get('/:text', async ({ params }) => {
                 let txtResHtml = '<tr><td>TXT</td><td>'
 
                 Object.entries(txtRes).forEach(([key, value]) => {
-                    txtResHtml =
-                        txtResHtml +
-                        `<p>${JSON.stringify(txtRes[key]['data'])}</p>`
+                    txtResHtml = txtResHtml + `<p>${txtRes[key]['data']}</p>`
                 })
 
                 txtResHtml = txtResHtml + `</td></tr>`
@@ -157,9 +149,7 @@ router.get('/:text', async ({ params }) => {
                 let nsResHtml = `<tr><td>NS</td><td>`
 
                 Object.entries(nsRes).forEach(([key, value]) => {
-                    nsResHtml =
-                        nsResHtml +
-                        `<p>${JSON.stringify(nsRes[key]['data'])}</p>`
+                    nsResHtml = nsResHtml + `<p>${nsRes[key]['data']}</p>`
                 })
 
                 nsResHtml = nsResHtml + `</td></tr>`
@@ -174,9 +164,7 @@ router.get('/:text', async ({ params }) => {
                 let soaResHtml = '<tr><td>SOA</td><td>'
 
                 Object.entries(soaRes).forEach(([key, value]) => {
-                    soaResHtml =
-                        soaResHtml +
-                        `<p>${JSON.stringify(soaRes[key]['data'])}</p>`
+                    soaResHtml = soaResHtml + `<p>${soaRes[key]['data']}</p>`
                 })
 
                 soaResHtml = soaResHtml + `</td></tr>`
