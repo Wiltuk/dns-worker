@@ -9,7 +9,7 @@
         "format": "prettier --write '**/*.{js,css,json,md}'"
     },
     "author": "Adrian Hardy",
-    "license": "ISC",
+    "license": "GPL-3.0-or-later",
     "devDependencies": {
         "prettier": "^1.17.0"
     },
