@@ -1,8 +1,0 @@
-name = "dns"
-type = "webpack"
-
-account_id = "a62a0ad79ca33309195e277ff4c84f1c"
-workers_dev = true
-route = "d.hardy.dev/*"
-zone_id = "9d2b27fd9f175d58aa577fc462846f91"
-compatibility_date = "2022-01-19"

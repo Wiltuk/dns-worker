@@ -70,15 +70,14 @@ router.get('/:text', async ({ params }) => {
 
         function aHtml() {
             if (aRes != null && aRes[0]['type'] == 1) {
-                let aResHtml = `<tr><td>A</td>`
+                let aResHtml = `<tr><td>A</td><td>`
 
                 Object.entries(aRes).forEach(([key, value]) => {
                     aResHtml =
-                        aResHtml +
-                        `<td>${JSON.stringify(aRes[key]['data'])}</td>`
+                        aResHtml + `<p>${JSON.stringify(aRes[key]['data'])}</p>`
                 })
 
-                aResHtml = aResHtml + `</tr>`
+                aResHtml = aResHtml + `</td></tr>`
                 return aResHtml
             } else {
                 return ` `
@@ -87,15 +86,15 @@ router.get('/:text', async ({ params }) => {
 
         function aaaaHtml() {
             if (aaaaRes != null && aaaaRes[0]['type'] == 28) {
-                let aaaaResHtml = '<tr><td>AAAA</td>'
+                let aaaaResHtml = '<tr><td>AAAA</td><td>'
 
                 Object.entries(aaaaRes).forEach(([key, value]) => {
                     aaaaResHtml =
                         aaaaResHtml +
-                        `<td>${JSON.stringify(aaaaRes[key]['data'])}</td>`
+                        `<p>${JSON.stringify(aaaaRes[key]['data'])}</p>`
                 })
 
-                aaaaResHtml = aaaaResHtml + `</tr>`
+                aaaaResHtml = aaaaResHtml + `</td></tr>`
                 return aaaaResHtml
             } else {
                 return ` `
@@ -104,15 +103,15 @@ router.get('/:text', async ({ params }) => {
 
         function cnameHtml() {
             if (cnameRes != null && cnameRes[0]['type'] == 5) {
-                let cnameResHtml = '<tr><td>CNAME</td>'
+                let cnameResHtml = '<tr><td>CNAME</td><td>'
 
                 Object.entries(cnameRes).forEach(([key, value]) => {
                     cnameResHtml =
                         cnameResHtml +
-                        `<td>${JSON.stringify(cnameRes[key]['data'])}</td>`
+                        `<p>${JSON.stringify(cnameRes[key]['data'])}</p>`
                 })
 
-                cnameResHtml = cnameResHtml + `</tr>`
+                cnameResHtml = cnameResHtml + `</td></tr>`
                 return cnameResHtml
             } else {
                 return ` `
@@ -121,15 +120,15 @@ router.get('/:text', async ({ params }) => {
 
         function mxHtml() {
             if (mxRes != null && mxRes[0]['type'] == 15) {
-                let mxResHtml = '<tr><td>MX</td>'
+                let mxResHtml = '<tr><td>MX</td><td>'
 
                 Object.entries(mxRes).forEach(([key, value]) => {
                     mxResHtml =
                         mxResHtml +
-                        `<td>${JSON.stringify(mxRes[key]['data'])}</td>`
+                        `<p>${JSON.stringify(mxRes[key]['data'])}</p>`
                 })
 
-                mxResHtml = mxResHtml + `</tr>`
+                mxResHtml = mxResHtml + `</td></tr>`
                 return mxResHtml
             } else {
                 return ` `
@@ -138,15 +137,15 @@ router.get('/:text', async ({ params }) => {
 
         function txtHtml() {
             if (txtRes != null && txtRes[0]['type'] == 16) {
-                let txtResHtml = '<tr><td>TXT</td>'
+                let txtResHtml = '<tr><td>TXT</td><td>'
 
                 Object.entries(txtRes).forEach(([key, value]) => {
                     txtResHtml =
                         txtResHtml +
-                        `<td>${JSON.stringify(txtRes[key]['data'])}</td>`
+                        `<p>${JSON.stringify(txtRes[key]['data'])}</p>`
                 })
 
-                txtResHtml = txtResHtml + `</tr>`
+                txtResHtml = txtResHtml + `</td></tr>`
                 return txtResHtml
             } else {
                 return ` `
@@ -155,15 +154,15 @@ router.get('/:text', async ({ params }) => {
 
         function nsHtml() {
             if (nsRes != null && nsRes[0]['type'] == 2) {
-                let nsResHtml = '<tr><td>NS</td>'
+                let nsResHtml = `<tr><td>NS</td><td>`
 
                 Object.entries(nsRes).forEach(([key, value]) => {
                     nsResHtml =
                         nsResHtml +
-                        `<td>${JSON.stringify(nsRes[key]['data'])}</td>`
+                        `<p>${JSON.stringify(nsRes[key]['data'])}</p>`
                 })
 
-                nsResHtml = nsResHtml + `</tr>`
+                nsResHtml = nsResHtml + `</td></tr>`
                 return nsResHtml
             } else {
                 return ` `
@@ -172,15 +171,15 @@ router.get('/:text', async ({ params }) => {
 
         function soaHtml() {
             if (soaRes != null && soaRes[0]['type'] == 6) {
-                let soaResHtml = '<tr><td>SOA</td>'
+                let soaResHtml = '<tr><td>SOA</td><td>'
 
                 Object.entries(soaRes).forEach(([key, value]) => {
                     soaResHtml =
                         soaResHtml +
-                        `<td>${JSON.stringify(soaRes[key]['data'])}</td>`
+                        `<p>${JSON.stringify(soaRes[key]['data'])}</p>`
                 })
 
-                soaResHtml = soaResHtml + `</tr>`
+                soaResHtml = soaResHtml + `</td></tr>`
                 return soaResHtml
             } else {
                 return ` `
